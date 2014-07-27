@@ -1,7 +1,7 @@
 /**
  * Created by zaur on 27.07.2014.
  */
-var bbCalendar = bbCalendar || (function(window){
+window.bbCalendar = window.bbCalendar || (function(window){
     var calendarModule = {};
 
     function getObj(objID)
