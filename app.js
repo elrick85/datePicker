@@ -19,7 +19,7 @@
 			"<i class='icon i-logo'></i><p class='pink'>The biggest hostel</br>in Moscow</p></div>"+
 			"<div class='box1'>"+
 			"<p>Booking </br>here and now</p>"+
-			"<div><form action='http://ext.privethostels.ru/widget/v0/book' method='get'><input value='"+id+"' type='hidden' name='af'\/>"+
+			"<div><form action='http://ext.privethostels.ru/widget/v0/book' method='get'><input value='1' type='hidden' name='start'\/><input value='"+id+"' type='hidden' name='af'\/>"+
 						"<label>Check-in Date<\/label><div class='item'><input name='date1' id='bb-calendar-from' type='text' value='"+nowStr+"' placeholder=''\/>"+
 							"<a href='#' id='bb-calendar-from-btn'><i class='icon i-btn-picker'><\/i><\/a><\/div>"+
 						"<label>Check-out Date<\/label><div class='item'><input name='date2' id='bb-calendar-to' type='text' value='"+tomorrowStr+"' placeholder=''\/>"+
