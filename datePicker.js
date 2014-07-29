@@ -42,7 +42,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
         }
         else if (obj.x)
             curleft += obj.x;
-        return curleft;
+        return curleft - 40;
     }
 
     function Top(obj)
@@ -58,7 +58,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
         }
         else if (obj.y)
             curtop += obj.y;
-        return curtop;
+        return curtop + 5;
     }
 
 // Calendar script
@@ -72,19 +72,19 @@ window.bbCalendar = window.bbCalendar || (function(window){
 // For current selected date
     var selectedd, selectedm, selectedy;
 
-    document.write('<table id="fc" style="position:absolute;border-collapse:collapse;background:#FFFFFF;border:1px solid #FFD088;display:none;-moz-user-select:none;-khtml-user-select:none;user-select:none;" cellpadding="2">');
-    document.write('<tr style="font:bold 13px Arial" onselectstart="return false"><td style="cursor:pointer;font-size:15px" onclick="upmonth(-1)">&laquo;</td><td colspan="5" id="mns" align="center"></td><td align="right" style="cursor:pointer;font-size:15px" onclick="upmonth(1)">&raquo;</td></tr>');
-    document.write('<tr style="background:#FF9900;font:12px Arial;color:#FFFFFF"><td align=center>П</td><td align=center>В</td><td align=center>С</td><td align=center>Ч</td><td align=center>П</td><td align=center>С</td><td align=center>В</td></tr>');
+    document.write('<table  id="fc" style="position:absolute;border-collapse:collapse;background:#F6F6F6;border: 1px solid #8b8b8b;display:none;-moz-user-select:none;-khtml-user-select:none;user-select:none;" cellpadding="2">');
+    document.write('<thead><tr class="thead" style="font:bold 13px Arial" onselectstart="return false"><td style="cursor:pointer;background: #E3004F;color:#fff;height: 30px;text-align: center;" onclick="bbCalendar.upmonth(-1)">&lt;</td><td colspan="7" id="mns" align="center"></td><td align="right" style="cursor:pointer;background: #E3004F;color:#fff;height: 30px;text-align: center;" onclick="bbCalendar.upmonth(1)">&gt;</td></tr></thead>');
+    document.write('<tbody><tr class="week" style="background:#fff;font:12px Arial;color:#646464"><td></td><td align=center>Mon</td><td align=center>Toe</td><td align=center>Wed</td><td align=center>Thu</td><td align=center>Fri</td><td align=center>Sat</td><td align=center>Sun</td><td></td></tr>');
     for(var kk=1;kk<=6;kk++) {
-        document.write('<tr>');
+        document.write('<tr class="bordered"><td></td>');
         for(var tt=1;tt<=7;tt++) {
             num=7 * (kk-1) - (-tt);
-            document.write('<td id="cv' + num + '" style="width:18px;height:18px">&nbsp;</td>');
+            document.write('<td id="cv' + num + '" style="width:30px;height:22px;box-sizing:border-box;">&nbsp;</td>');
         }
-        document.write('</tr>');
+        document.write('<td></td></tr>');
     }
-    document.write('<tr><td colspan="7" align="center" style="cursor:pointer;font:13px Arial;background:#FFC266" onclick="today()">Сегодня: '+addnull(sccd,sccm+1,sccy)+'</td></tr>');
-    document.write('</table>');
+    // document.write('<tr style="display"><td colspan="7" align="center" style="cursor:pointer;font:13px Arial;background:#FFC266" onclick="today()">Сегодня: '+addnull(sccd,sccm+1,sccy)+'</td></tr></tbody>');
+    document.write('</tbody></table>');
 
     document.all?document.attachEvent('onclick',checkClick):document.addEventListener('click',checkClick,false);
 
@@ -125,7 +125,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
     }
     function EvtObj(e){if(!e)e=window.event;return e;}
     function cs_over(e) {
-        evtTgt(EvtObj(e)).style.background='#FFEBCC';
+        evtTgt(EvtObj(e)).style.background='#e3004f';
     }
     function cs_out(e) {
         evtTgt(EvtObj(e)).style.background='#FFFFFF';
@@ -135,7 +135,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
         getObj('fc').style.display='none';
     }
 
-    var mn=new Array('Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентрябрь','Октябрь','Ноябрь','Декабрь');
+    var mn=new Array('January','February','March','April','May','June','July','August','September','October','November','December');
     var mnn=new Array('31','28','31','30','31','30','31','31','30','31','30','31');
     var mnl=new Array('31','29','31','30','31','30','31','31','30','31','30','31');
     var calvalarr=new Array(42);
@@ -143,17 +143,15 @@ window.bbCalendar = window.bbCalendar || (function(window){
     function f_cps(obj) {
         obj.style.background='#FFFFFF';
         obj.style.font='10px Arial';
-        obj.style.color='#333333';
         obj.style.textAlign='center';
         obj.style.textDecoration='none';
-        obj.style.border='1px solid #FFD088';//'1px solid #606060';
+        obj.style.border='';//'1px solid #606060';
         obj.style.cursor='pointer';
     }
 
     function f_cpps(obj) {
         obj.style.background='#C4D3EA';
         obj.style.font='10px Arial';
-        obj.style.color='#FF9900';
         obj.style.textAlign='center';
         obj.style.textDecoration='line-through';
         obj.style.border='1px solid #6487AE';
@@ -161,9 +159,8 @@ window.bbCalendar = window.bbCalendar || (function(window){
     }
 
     function f_hds(obj) {
-        obj.style.background='#FFF799';
+        obj.style.background='#e3004f';
         obj.style.font='bold 10px Arial';
-        obj.style.color='#333333';
         obj.style.textAlign='center';
         obj.style.border='1px solid #6487AE';
         obj.style.cursor='pointer';
@@ -179,7 +176,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
         td.setMonth(cm);
         cd=td.getDay();
         if (cd==0)cd=6; else cd--;
-        getObj('mns').innerHTML=mn[cm]+'&nbsp;<span style="cursor:pointer" onclick="upmonth(-12)">&lt;</span>'+cy+'<span style="cursor:pointer" onclick="upmonth(12)">&gt;</span>';
+        getObj('mns').innerHTML=mn[cm]+'&nbsp;<span style="cursor:pointer" onclick="bbCalendar.upmonth(-12)">&nbsp;</span>'+cy+'<span style="cursor:pointer" onclick="bbCalendar.upmonth(12)">&nbsp;</span>';
         marr=((cy%4)==0)?mnl:mnn;
         for(var d=1;d<=42;d++) {
             cv=getObj('cv'+parseInt(d));
@@ -193,13 +190,14 @@ window.bbCalendar = window.bbCalendar || (function(window){
                 cv.onclick=cs_click;
 
                 // if today
+                /*
                 if (sccm == cm && sccd == (d-cd) && sccy == cy)
-                    cv.style.color='#FF9900';
+                    cv.style.color='#fff';*/
 
                 // if selected date
                 if (cm == selectedm && cy == selectedy && selectedd == (d-cd) )
                 {
-                    cv.style.background='#FFEBCC';
+                    cv.style.background='#e3004f';
                     //cv.style.color='#e0d0c0';
                     //cv.style.fontSize='1.1em';
                     //cv.style.fontStyle='italic';
@@ -225,7 +223,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
 
     prepcalendar('',ccm,ccy);
 
-    function upmonth(s)
+    calendarModule.upmonth = function(s)
     {
         marr=((ccy%4)==0)?mnl:mnn;
 
@@ -241,7 +239,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
             ccy--;
         }
         prepcalendar('',ccm,ccy);
-    }
+    };
 
     function today() {
         updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear());

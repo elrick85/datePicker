@@ -3,12 +3,17 @@
  */
 (function(){
    var selector = "bb-calendar";
-   var htmlStr = "<form action='' method='post'>"+
-                    "с <input id='bb-calendar-from' type='text' value='' placeholder='выберите дату'\/>"+
-                        "<a href='#' id='bb-calendar-from-btn'>Календарь<\/a>"+
-                    "по <input id='bb-calendar-to' type='text' value='' placeholder='выберите дату'\/>"+
-                        "<a href='#' id='bb-calendar-to-btn'>Календарь<\/a>"+
-                  "<input type='submit' value='send'></form>";
+   var htmlStr = "<div class='date-picker-box'>"+
+        "<div class='date-picker-head'>"+
+        "<i class='icon i-logo'></i><p class='pink'>The biggest hostel</br>in Moscow</p></div>"+
+        "<div class='box1'>"+
+        "<p>Booking </br>here and now</p>"+
+        "<div><form action='' method='post'>"+
+                    "<label>Check-in Date<\/label><div class='item'><input id='bb-calendar-from' type='text' value='' placeholder=''\/>"+
+                        "<a href='#' id='bb-calendar-from-btn'><i class='icon i-btn-picker'><\/i><\/a><\/div>"+
+                    "<label>Check-out Date<\/label><div class='item'><input id='bb-calendar-to' type='text' value='' placeholder=''\/>"+
+                        "<a href='#' id='bb-calendar-to-btn'><i class='icon i-btn-picker'><\/i><\/a><\/div>"+
+                  "<input class='btn default' type='submit' value='Search'></form></div></div></div>";
 
     window.onload = function(){
         var item = document.getElementById(selector);
