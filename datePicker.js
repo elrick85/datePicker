@@ -73,7 +73,7 @@ window.bbCalendar = window.bbCalendar || (function(window){
     var selectedd, selectedm, selectedy;
 
     document.write('<table  id="fc" style="position:absolute;border-collapse:collapse;background:#F6F6F6;border: 1px solid #8b8b8b;display:none;-moz-user-select:none;-khtml-user-select:none;user-select:none;" cellpadding="2">');
-    document.write('<thead><tr class="thead" style="font:bold 13px Arial" onselectstart="return false"><td style="cursor:pointer;background: #E3004F;color:#fff;width:17px;height: 30px;text-align: center;" onclick="bbCalendar.upmonth(-1)">&lt;</td><td colspan="7" id="mns" align="center"></td><td align="right" style="cursor:pointer;background: #E3004F;color:#fff;width:17px;height: 30px;text-align: center;" onclick="bbCalendar.upmonth(1)">&gt;</td></tr></thead>');
+    document.write('<thead><tr class="thead" style="font:bold 13px Arial" onselectstart="return false"><td style="cursor:pointer;background: #E3004F;color:#fff;width:17px;height: 30px;border: 1px solid rgb(139, 139, 139);text-align: center;" onclick="bbCalendar.upmonth(-1)">&lt;</td><td colspan="7" id="mns" align="center"></td><td align="right" style="cursor:pointer;background: #E3004F;color:#fff;border: 1px solid rgb(139, 139, 139);width:17px;height: 30px;text-align: center;" onclick="bbCalendar.upmonth(1)">&gt;</td></tr></thead>');
     document.write('<tbody><tr class="week" style="background:#fff;font:12px Arial;color:#646464"><td></td><td align=center>Mon</td><td align=center>Toe</td><td align=center>Wed</td><td align=center>Thu</td><td align=center>Fri</td><td align=center>Sat</td><td align=center>Sun</td><td></td></tr>');
     for(var kk=1;kk<=6;kk++) {
         document.write('<tr class="bordered"><td class="no-bordered"></td>');

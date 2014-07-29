@@ -110,6 +110,7 @@ input.btn.activ{
 #fc {
 	width: 232px;
 	z-index: 9999;
+    box-shadow: 0px -1px 12px 3px #D2D2D2;
 }
 #fc thead {
 	text-transform: uppercase;
