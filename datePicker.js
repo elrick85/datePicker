@@ -241,21 +241,23 @@ window.bbCalendar = window.bbCalendar || (function(window){
         }
         prepcalendar('',ccm,ccy);
     };
-
+	
     function today() {
         updobj.value=addnull(now.getDate(),now.getMonth()+1,now.getFullYear());
         getObj('fc').style.display='none';
         prepcalendar('',sccm,sccy);
     }
 
-    function addnull(d,m,y)
+	function addnull(d,m,y)
     {
         var d0='',m0='';
         if (d<10)d0='0';
         if (m<10)m0='0';
 
         return ''+d0+d+'.'+m0+m+'.'+y;
-    }
+    };
 
+	calendarModule.addnull = addnull;
+	
     return calendarModule;
 })(window);

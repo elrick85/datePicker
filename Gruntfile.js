@@ -19,6 +19,9 @@ module.exports = function(grunt) {
 				dest: "dest/bb_calendar.js"
 			}
 		}
+		,cssmin: {
+			'dest/bb_calendar.min.css': ['datePicker.css']
+		}
 		,uglify: {
 			my_target: {
 				files: {
@@ -31,7 +34,8 @@ module.exports = function(grunt) {
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
   
 	// Default task.
-	grunt.registerTask('default', ['concat', 'uglify']);
+	grunt.registerTask('default', ['concat', 'uglify', 'cssmin']);
 };
