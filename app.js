@@ -12,15 +12,14 @@
     window.onload = function(){
         var item = document.getElementById(selector);
 		var id = item.getAttribute("data-id");
-		var htmlStr = "<div class='date-picker-box'>"+
-			"<p class='pink top'>The biggest hostel</br>in Moscow</p>"+
+		var htmlStr = "<p class='pink top'>The biggest hostel</br>in Moscow</p>"+
 			"<p>Booking </br>here and now</p>"+
 			"<div><form action='http://ext.privethostels.ru/widget/v0/book' method='get'><input value='1' type='hidden' name='start'\/><input value='"+id+"' type='hidden' name='af'\/>"+
 						"<label>Check-in Date<\/label><div class='item'><input name='date1' id='bb-calendar-from' type='text' value='"+nowStr+"' placeholder=''\/>"+
 							"<a href='#' id='bb-calendar-from-btn'><i class='icon i-btn-picker'><\/i><\/a><\/div>"+
 						"<label>Check-out Date<\/label><div class='item'><input name='date2' id='bb-calendar-to' type='text' value='"+tomorrowStr+"' placeholder=''\/>"+
 							"<a href='#' id='bb-calendar-to-btn'><i class='icon i-btn-picker'><\/i><\/a><\/div>"+
-					  "<input class='btn default' type='submit' value='Search'></form></div></div>";
+					  "<input class='btn default' type='submit' value='Search'><\/form><\/div>";
 		
 		
         item.innerHTML = htmlStr;
